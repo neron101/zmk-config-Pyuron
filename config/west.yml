@@ -4,12 +4,10 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: MeowCatpawkittie
       url-base: https://github.com/MeowCatpawkittie
-    - name: caksoylar  # <-- new entry
+    - name: caksoylar
       url-base: https://github.com/caksoylar  
     - name: badjeff
       url-base: https://github.com/badjeff
-    - name: sekigon-gonnoc
-      url-base: https://github.com/sekigon-gonnoc
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -24,8 +22,8 @@ manifest:
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
-    - name: zmk-driver-paw3222
-      remote: sekigon-gonnoc
+    - name: zmk-driver-paw32xx
+      remote: MeowCatpawkittie
       revision: main
   self:
     path: config
