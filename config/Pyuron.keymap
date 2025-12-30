@@ -11,29 +11,7 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <4 3>;
-        };
-
-        lag1 {
-            bindings = <&kp LANGUAGE_1>;
-            key-positions = <0 1>;
-        };
-
-        lag2 {
-            bindings = <&kp LANGUAGE_2>;
-            key-positions = <11 10>;
-        };
-
-        shift {
-            bindings = <&kp LEFT_SHIFT>;
-            key-positions = <2 1>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         to_layer_0: to_layer_0 {
