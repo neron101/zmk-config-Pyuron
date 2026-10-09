@@ -1,23 +1,38 @@
 manifest:
   remotes:
-    - name: zmkfirmware 
+    - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: MeowCatpawkittie
-      url-base: https://github.com/MeowCatpawkittie
+    - name: cormoran
+      url-base: https://github.com/cormoran
     - name: caksoylar
-      url-base: https://github.com/caksoylar  
+      url-base: https://github.com/caksoylar
     - name: sekigon-gonnoc
       url-base: https://github.com/sekigon-gonnoc
   projects:
+    # ZMK本体（DYA Studio対応 cormoran版 v0.3）
     - name: zmk
-      remote: zmkfirmware
-      revision: v0.2
+      remote: cormoran
+      revision: v0.3-branch+dya
       import: app/west.yml
+    # PAW3222/3220 ドライバ
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc
-      revision: main
+      revision: df652881be2520bde4f64ab6ca35e4c5708f4f9b
     - name: zmk-rgbled-widget
       remote: caksoylar
+      revision: v0.3-branch
+    # DYA Studio用モジュール（v0.3対応版）
+    - name: zmk-module-ble-management
+      remote: cormoran
+      revision: zmk-v0.3.0.0
+    - name: zmk-module-battery-history
+      remote: cormoran
       revision: main
+    - name: zmk-module-settings-rpc
+      remote: cormoran
+      revision: main
+    - name: zmk-module-runtime-input-processor
+      remote: cormoran
+      revision: zmk-v0.3.0.0
   self:
     path: config
