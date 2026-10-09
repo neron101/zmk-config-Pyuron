@@ -60,3 +60,27 @@
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 };
+
+/* ===== DYA Studio: トラボ速度などをStudioから変更可能に ===== */
+#include <input/processors/runtime-input-processor.dtsi>
+#include <behaviors/battery_history_request.dtsi>
+
+/* 左ボール(スクロール)は既にスクロール量へ変換済みなので等倍スタート */
+&scroll_runtime_input_processor {
+    scale-divisor = <1>;
+};
+
+&trackball_listener_R {
+    input-processors =
+        <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
+        <&mouse_runtime_input_processor>;
+};
+
+&trackball_listener_L {
+    input-processors =
+        <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+        <&zip_xy_scaler 1 16>,
+        <&zip_scroll_scaler 1 5>,
+        <&zip_xy_to_scroll_mapper>,
+        <&scroll_runtime_input_processor>;
+};
